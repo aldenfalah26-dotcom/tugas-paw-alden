@@ -1,13 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>tugas-paw-alden</title>
+    <title>Daftar Tugas Kuliah</title>
   </head>
   <body>
-    <div id="app"></div>
+    <main class="container">
+      <header class="header">
+        <h1 id="app-title"></h1>
+        <p id="app-info" class="info"></p>
+      </header>
+
+      <section class="card">
+        <h2 id="form-title">Tambah Tugas</h2>
+        <form id="form-tugas" class="form">
+          <label>Judul Tugas
+            <input id="input-judul" type="text" placeholder="Contoh: Laporan praktikum" required />
+          </label>
+          <label>Mata Kuliah
+            <input id="input-matkul" type="text" placeholder="Contoh: Pengembangan Aplikasi Web" required />
+          </label>
+          <label>Deadline
+            <input id="input-deadline" type="date" required />
+          </label>
+          <div class="form-actions">
+            <button type="submit" id="btn-simpan" class="btn btn-primary">Tambah</button>
+            <button type="button" id="btn-batal" class="btn btn-secondary" hidden>Batal</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Daftar Tugas</h2>
+        <p id="ringkasan" class="info"></p>
+        <ul id="daftar-tugas" class="list"></ul>
+      </section>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
