@@ -37,6 +37,101 @@
         <p id="ringkasan" class="info"></p>
         <ul id="daftar-tugas" class="list"></ul>
       </section>
+
+      <section class="card penjelasan">
+        <h2>Penjelasan Teknologi yang Digunakan</h2>
+        <p class="info">Ringkasan alat dan konsep yang dipakai untuk membuat aplikasi ini.</p>
+
+        <details open>
+          <summary>Git dan GitHub</summary>
+          <p>
+            Git adalah sistem kontrol versi yang mencatat setiap perubahan kode sebagai
+            <em>commit</em>, sehingga riwayat pekerjaan bisa ditelusuri dan dikembalikan.
+            GitHub menyimpan repository itu secara online. Di proyek ini aku memakai
+            <em>branch</em> terpisah untuk tiap fitur, menggabungkannya lewat
+            <em>Pull Request</em>, melakukan <em>push</em> dan <em>pull</em>, serta
+            menyelesaikan <em>merge conflict</em> pada baris judul halaman. File
+            <code>.gitignore</code> mencegah <code>node_modules</code>, <code>dist</code>,
+            dan <code>.env</code> ikut terunggah.
+          </p>
+        </details>
+
+        <details>
+          <summary>npm</summary>
+          <p>
+            npm adalah package manager untuk mengunduh dan mengelola library. Daftar
+            package dicatat di <code>package.json</code>, dan versi persisnya dikunci di
+            <code>package-lock.json</code>. Di <code>scripts</code> ada perintah
+            <code>npm run dev</code>, <code>npm run build</code>, dan
+            <code>npm run preview</code>.
+          </p>
+          <ul>
+            <li><strong>dependencies</strong>: package yang dibutuhkan aplikasi saat berjalan (proyek ini belum memakainya).</li>
+            <li><strong>devDependencies</strong>: alat bantu pengembangan, yaitu <code>typescript</code> dan <code>vite</code>.</li>
+            <li><strong>Semantic versioning</strong> (MAJOR.MINOR.PATCH): tanda <code>^</code> mengizinkan update minor dan patch, sedangkan <code>~</code> hanya patch.</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>TypeScript</summary>
+          <p>
+            TypeScript adalah JavaScript dengan sistem tipe, sehingga kesalahan data
+            terdeteksi sebelum aplikasi dijalankan. Contoh yang dipakai di kode:
+          </p>
+          <ul>
+            <li><strong>Primitive types</strong>: <code>string</code>, <code>number</code>, <code>boolean</code>.</li>
+            <li><strong>Array</strong>: <code>Tugas[]</code> untuk daftar tugas.</li>
+            <li><strong>Interface</strong>: <code>Tugas</code> dan <code>AppConfig</code> menentukan bentuk data.</li>
+            <li><strong>Type alias dan union type</strong>: <code>StatusTugas = "Belum Selesai" | "Selesai"</code>.</li>
+            <li><strong>Generics</strong>: <code>cariBerdasarkanId&lt;T&gt;</code>, <code>simpanData&lt;T&gt;</code>, dan <code>ambilElemen&lt;T&gt;</code>.</li>
+          </ul>
+        </details>
+
+        <details>
+          <summary>Vite</summary>
+          <p>
+            Vite adalah build tool. Saat pengembangan, <code>npm run dev</code> menjalankan
+            server lokal yang cepat dan langsung memuat perubahan. Untuk produksi,
+            <code>npm run build</code> menghasilkan folder <code>dist</code> berisi file
+            HTML, CSS, dan JavaScript yang sudah dioptimalkan dan siap diunggah.
+          </p>
+        </details>
+
+        <details>
+          <summary>Environment variables</summary>
+          <p>
+            Konfigurasi aplikasi disimpan di file <code>.env</code> (nama, versi, dan
+            author aplikasi) dan dibaca lewat <code>import.meta.env</code>. File
+            <code>.env</code> tidak diunggah ke GitHub, sedangkan
+            <code>.env.example</code> diunggah sebagai contoh format. Di Vite, variabel
+            berawalan <code>VITE_</code> ikut tertanam di hasil build dan bisa dilihat
+            siapa pun di browser, sehingga hanya boleh berisi data non-rahasia. Password
+            dan API key rahasia tidak boleh ditaruh di sini.
+          </p>
+        </details>
+
+        <details>
+          <summary>Compiler, transpiler, dan bundler</summary>
+          <ul>
+            <li>
+              <strong>Compiler</strong> menerjemahkan kode ke bentuk lain dan memeriksa
+              kesalahannya. Di proyek ini, <code>tsc</code> memeriksa tipe TypeScript
+              (<code>tsc &amp;&amp; vite build</code> berhenti bila ada error tipe).
+            </li>
+            <li>
+              <strong>Transpiler</strong> menerjemahkan kode ke bahasa sejenis pada
+              tingkat abstraksi yang sama. Kode TypeScript diubah menjadi JavaScript
+              biasa karena browser hanya memahami JavaScript.
+            </li>
+            <li>
+              <strong>Bundler</strong> menggabungkan banyak modul (<code>main.ts</code>,
+              <code>config.ts</code>, <code>tugas-service.ts</code>, dan lainnya) beserta
+              CSS menjadi sedikit file yang kecil di folder <code>dist</code>. Vite
+              berperan sebagai bundler sekaligus menjalankan proses transpile.
+            </li>
+          </ul>
+        </details>
+      </section>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>

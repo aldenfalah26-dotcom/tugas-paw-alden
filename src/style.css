@@ -89,3 +89,25 @@ body {
   .item-aksi { justify-content: flex-start; }
   .header h1 { font-size: 1.5rem; }
 }
+
+.penjelasan details {
+  margin-top: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.penjelasan summary { cursor: pointer; font-weight: 600; }
+.penjelasan p,
+.penjelasan li {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.penjelasan ul { padding-left: 20px; }
+.penjelasan code {
+  padding: 1px 6px;
+  background: #eef2ff;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
